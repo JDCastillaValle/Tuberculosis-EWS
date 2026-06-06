@@ -1,2 +1,6 @@
 # Tuberculosis-EWS
-Code used in the bachelror's degree thesis of mathematics "Search of early warning signals in a mathematical model of tuberculosis"
+Aquí se muestra el código en **MATLAB** usado en la tesis de la licenciatura de matemáticas de la Facultad de Ciencias de la UNAM: 
+
+*"Búsqueda de señales de alerta temprana en un modelo matemático de la tuberculosis"*
+
+
