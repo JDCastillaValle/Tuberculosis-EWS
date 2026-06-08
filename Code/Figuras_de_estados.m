@@ -351,7 +351,9 @@ dTf=p11*Tf_t*(1-Tf_t/(1+p9*Mf_t))+ M_t*T_t*p2*(1+Mf_t*p3) -Mf_t*Tf_t*p12;
 
     end % end looping over all the solutions
  end % end looping over k2 values
+ 
 %% Categorizamos estados estables positivos reales
+
 for i = 1:length(M_sol_stable)
     X = sort(M_sol_stable{:,i});
     if length(X) == 1
@@ -411,8 +413,7 @@ for i = 2:length(Tf_sol_stable)
             Tf_sol_stable_2(i) = X(1);
             Tf_sol_stable_1(i) = NaN;
         end
-%        Tf_sol_stable_1(i) = X(1);
- %       Tf_sol_stable_2(i) = NaN;
+
     elseif length(X) == 2
         Tf_sol_stable_1(i) = X(1);
         Tf_sol_stable_2(i) = X(2);
