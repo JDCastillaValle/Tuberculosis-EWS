@@ -1,4 +1,3 @@
-%% vecindad izquierda de la bif derecha
 % Se sacan los estados estables de la ecuación con valores cercanos a la
 % bifurcación derecha para luego obtener sus trayectorias estocásticas y se
 % obtienen dos conjuntos de datos: De la varianza de las trayectorias y de
