@@ -12,8 +12,8 @@ N_all = [];
 B_all = [];
 
 for k = 1:length(r)
-    % Ecuación: -a*N^3 - b*N^2 + BN -r = 0
-    % Ecuación: -1*x^3 - 0*N^2 + 1x -r = 0
+    % Ecuación: -a*x^3 - b*x^2 + Bx -r = 0
+    % Ecuación: -1*x^3 - 0*x^2 + 1x -r = 0
     coef = [-a -b B r(k)];
     rootsN = roots(coef);
 
@@ -21,23 +21,22 @@ for k = 1:length(r)
     realRoots = rootsN(abs(imag(rootsN)) < 1e-6);
 
 
-    N_all = [N_all; realRoots];
+    x_all = [x_all; realRoots];
     B_all = [B_all; r(k)*ones(length(realRoots),1)];
 end
 
 
 %%
-N_up = N_all(N_all >= 0.61811);
-%N_middle = setdiff(setdiff(N_all,N_up),N_down);
-N_middle = N_all((N_all <= 0.61811) & (N_all >= -0.605964));
-N_middle = sort(N_middle);
-N_down = N_all(N_all <= -0.605964);
+x_up = x_all(x_all >= 0.61811);
+x_middle = N_all((x_all <= 0.61811) & (x_all >= -0.605964));
+x_middle = sort(x_middle);
+x_down = x_all(x_all <= -0.605964);
 % Gráfica
 figure
-plot(B_all(N_all >= 0.61811), N_up, 'k',LineWidth=1.5)
+plot(B_all(N_all >= 0.61811), x_up, 'k',LineWidth=1.5)
 hold on
-plot(B_all(N_all <= -0.605964), N_down, 'k',LineWidth=1.5)
-plot(B_all((N_all <= 0.61811) & (N_all >= -0.605964)), -N_middle, 'k', LineStyle='--',LineWidth=1.5)
+plot(B_all(x_all <= -0.605964), x_down, 'k',LineWidth=1.5)
+plot(B_all((x_all <= 0.61811) & (x_all >= -0.605964)), -x_middle, 'k', LineStyle='--',LineWidth=1.5)
 %xlabel('p^-                                      p^+')
 %ylabel('X_-                         X_c                        X_+')
 
