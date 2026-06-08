@@ -53,7 +53,7 @@ k15=10384271.4493836; % capacidad de carga de T y de Tf
 k16=5.46826266888095; %numero promedio de Tf fagocitada por Mf
 k17=18.5909776955088; %capacidad de interior de Mf vertido en la MEC de inducir fagocitosis
 
-%Modulables, elegir una fase (actualmente esta en fase 1)
+%Modulables, elegir una fase (actualmente esta en fase 2)
 
 %Fase 1
 
