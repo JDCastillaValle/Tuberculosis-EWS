@@ -18,7 +18,7 @@ for k = 1:length(r)
     rootsN = roots(coef);
 
     % Nos quedamos solo con raíces reales
-    realRoots = rootsN(abs(imag(rootsN)) < 1e-6);
+    realRoots = rootsN(abs(imag(rootsN)) == 0);
 
 
     x_all = [x_all; realRoots];
