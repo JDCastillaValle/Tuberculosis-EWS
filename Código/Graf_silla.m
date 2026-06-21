@@ -1,3 +1,7 @@
+% Este código recrea las gráficas encontradas en 
+% "C. Wissel, «A universal law of the characteristic return time near thresholds», Oecologia, vol.
+%  65, n.º 1, pp. 101-107, dic. 1984, doi: 10.1007/BF00384470."
+
 clear 
 close all
 %Coeficientes
