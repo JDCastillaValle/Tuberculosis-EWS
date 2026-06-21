@@ -8,7 +8,7 @@ B = 1;
 %Rango del parámetro
 r = linspace(-1,1,400);
 
-N_all = [];
+x_all = [];
 B_all = [];
 
 for k = 1:length(r)
@@ -28,12 +28,12 @@ end
 
 %%
 x_up = x_all(x_all >= 0.61811);
-x_middle = N_all((x_all <= 0.61811) & (x_all >= -0.605964));
+x_middle = x_all((x_all <= 0.61811) & (x_all >= -0.605964));
 x_middle = sort(x_middle);
 x_down = x_all(x_all <= -0.605964);
 % Gráfica
 figure
-plot(B_all(N_all >= 0.61811), x_up, 'k',LineWidth=1.5)
+plot(B_all(x_all >= 0.61811), x_up, 'k',LineWidth=1.5)
 hold on
 plot(B_all(x_all <= -0.605964), x_down, 'k',LineWidth=1.5)
 plot(B_all((x_all <= 0.61811) & (x_all >= -0.605964)), -x_middle, 'k', LineStyle='--',LineWidth=1.5)
