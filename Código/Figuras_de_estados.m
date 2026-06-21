@@ -1,6 +1,5 @@
-%% Versión completa, tardada
-
-%
+% Código para generar la figura obtenida de recorrer el parámetro de fagocitosis 
+% en un intervalo exploratorio que contiene el intervalo de biestabilidad del sistema
 close all
 clear all
 clc
