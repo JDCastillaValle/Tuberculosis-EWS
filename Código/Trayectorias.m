@@ -1,10 +1,12 @@
-% Se sacan los estados estables de la ecuación con valores cercanos a la
-% bifurcación derecha para luego obtener sus trayectorias estocásticas y se
-% obtienen dos conjuntos de datos: De la varianza de las trayectorias y de
-% las autocorrelaciones. 
-% Se van graficando los valores de la vecindad que se toma en la figura de 
-% estados estables, positivos y reales obtenida del código 
-% "Figuras_estados.m" conforme se van obteniendo sus estados estables.
+% Se pueden recorrer los estados estables de salud o los de enefermedad
+% con un intervalo de valores equidistantes para el parámetro de fagocitosis. 
+% Se van oteniendo los estados estables representantes de salud o enfermedad, 
+% según se haya elegido. Estos estados estables se van graficando en la figura 
+% generada de "Figueas_de_estados.m" y se utilizan como punto inicial de las trayectorias
+% estocásticas, generadas posteriormente en este mismo código, usando el algoritmo de
+% Euler-Maruyama. Se obtiene de las trayectorias las medidas estadísticas de 
+% varianza, autocorrelación, asimetría, flikcering y varianza de la trayectoria
+% hasta antes del flickering.
 
 
 %%
