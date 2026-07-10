@@ -403,8 +403,6 @@ clear A B J Jeval1
         name='T'+string(i);
         set(gcf, 'Renderer', 'painters');
         saveas(gcf, fullfile(path, name), 'svg');
-
-
 else
     
     figure
@@ -413,20 +411,8 @@ else
     axis square
     plot (T, S(:,3),'Color','m');
     hold on
-    %for silla = [silla1 silla2 silla3]
-    %    if sum(min(ic_stable)<silla)==4 && sum(silla<max(ic_stable))==4
-    %        line([0,nPeriods*dt], [silla(3),silla(3)], 'Color', 'k', 'LineStyle', '-')
-    %    end
-    %end
-    %line([0,nPeriods*dt], [silla1(3), silla1(3)], 'Color', '#ff8c00', 'LineStyle', '-')
-    %line([0,nPeriods*dt], [silla2(3), silla2(3)], 'Color', '#db7093', 'LineStyle', '-')
-    line([0,nPeriods*dt], [silla3(3), silla3(3)], 'Color', 'k', 'LineStyle', '-')%#4DBEEE'%#80B3FF
-    try
-        min(ic_stable(1,3), ic_stable(2,3))<=ic_unstable(i,3) && max(ic_stable(1,3), ic_stable(2,3))>=ic_unstable(i,3);
-        line([0,nPeriods*dt], [ic_unstable(i,3),ic_unstable(i,3)], 'Color', 'b', 'LineStyle', '-')
-    catch
-        disp('no unstable')
-    end
+    line([0,nPeriods*dt], [unstable_for_flicks(3), ...
+        unstable_for_flicks(3)], 'Color', 'b', 'LineStyle', '-')%#4DBEEE'%#80B3FF
     line([0,nPeriods*dt], [y(3),y(3)], 'Color', 'r', 'LineStyle', '--')
     %line([0,1e-3], [ic(2,1),ic(2,1)], 'Color', 'y', 'LineStyle', '-')
     ylabel('T')
@@ -447,35 +433,18 @@ else
     axis square
     plot (T, S(:,4),'Color','m');
     hold on
-    %line([0,nPeriods*dt], [silla1(4), silla1(4)], 'Color', '#ff8c00', 'LineStyle', '-')
-    line([0,nPeriods*dt], [silla2(4), silla2(4)], 'Color', 'k', ...
+    line([0,nPeriods*dt], [unstable_for_flicks(4), unstable_for_flicks(4)], 'Color', 'k', ...
         'LineStyle', '-')%#4DBEEE'%#db7093
-    %line([0,nPeriods*dt], [silla3(4), silla3(4)], 'Color', '#80B3FF', 'LineStyle', '-')
-    %for silla = [silla1 silla2 silla3]
-    %    if sum(min(ic_stable)<silla)==4 && sum(silla<max(ic_stable))==4
-    %        line([0,nPeriods*dt], [silla(4),silla(4)], 'Color', 'k', 'LineStyle', '-')
-    %    end
-    %end
-    try min(ic_stable(1,4), ...
-            ic_stable(2,4))<=ic_unstable(i,4) && max(ic_stable(1,4), ...
-            ic_stable(2,4))>=ic_unstable(i,4);
-        line([0,nPeriods*dt], [ic_unstable(i,4),ic_unstable(i,4)], ...
-            'Color', 'b', 'LineStyle', '-')
-    catch
-        disp('unstables out of bounds')
-    end
     line([0,nPeriods*dt], [y(4),y(4)], 'Color', 'r', 'LineStyle', '--')
-    %line([0,1e-3], [ic(2,2),ic(2,2)], 'Color', 'y', 'LineStyle', '-')
     ylabel('Tf')
     xlabel('tiempo')
     xlim([0 3000])
     ylim([0, 10])
 
-    path='C:\Users\José Daniel\Documents\Tesis\Imágenes\Auto_guardadas\Enfermedad\TyTf';
+    path='path';
         name='TyTf'+string(i);
         set(gcf, 'Renderer', 'painters');
         saveas(gcf, fullfile(path, name), 'svg');
-%    xlim([ic_stable(l,4)-5,ic_stable(estado,4)+5])
 %{
 subplot(2,2,4)
     histogram(S(:,4))
@@ -509,8 +478,7 @@ subplot(2,2,4)
     ylabel('Ttot')
     xlabel('tiempo')
 %}
-   end
-else
+   endelse
         varianza(i,1) = NaN;
         varianza(i,2) = NaN;
         varianza(i,3) = NaN;
@@ -583,8 +551,7 @@ line([log10(bif_izquierda), log10(bif_izquierda)], [min(varianza(:,3)), ...
     ylabel('var(T)')
     xlabel('log10(p2)')
 
-        path=['C:\Users\José Daniel\Documents\Tesis\Imágenes\' ...
-            'Auto_guardadas\Salud'];
+        path='path';
         name='Varianza';
         set(gcf, 'Renderer', 'painters');
         saveas(gcf, fullfile(path, name), 'svg');
@@ -635,8 +602,7 @@ line([log10(bif_izquierda), log10(bif_izquierda)], [min(varianza_sf(:,4)), ...
     ylabel('var(Tf)')
     xlabel('log10(p2)')
 
-        path=['C:\Users\José Daniel\Documents\Tesis\Imágenes\' ...
-            'Auto_guardadas\Salud'];
+        path='path';
         name='Varianza sin flickering';
         set(gcf, 'Renderer', 'painters');
         saveas(gcf, fullfile(path, name), 'svg');
@@ -673,8 +639,7 @@ sgtitle('Flickering')
         ylabel('Número de flicks en Tf')
         xlabel('log10(p2)')
 
-        path=['C:\Users\José Daniel\Documents\Tesis\Imágenes\' ...
-            'Auto_guardadas\Salud'];
+        path='path';
         name='Flickering';
         set(gcf, 'Renderer', 'painters');
         saveas(gcf, fullfile(path, name), 'svg');
