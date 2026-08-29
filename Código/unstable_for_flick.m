@@ -72,7 +72,6 @@ dTf=k12*Tf_t*(1-Tf_t/(1+k15*Mf_t))+M_t*(1/k16)*T_t*k2*(1+Mf_t*k13*k17)-Mf_t*Tf_t
 
 J=jacobian([dM dMf dT dTf], vars);
 
-stable_positive_real_solution_matrix=[];
 unstable_positive_real_solution_matrix=[];
 
 for sol_num=1:1:length(sol.M_t)
@@ -83,19 +82,13 @@ if isreal([sol.M_t(sol_num) sol.Mf_t(sol_num) sol.T_t(sol_num) sol.Tf_t(sol_num)
             Jeval=subs(J, vars, [sol.M_t(sol_num) sol.Mf_t(sol_num) sol.T_t(sol_num) sol.Tf_t(sol_num)]);
         eigenvals=eig(Jeval) ;
            if (sum(double(eigenvals)<0))==4
-           disp('solution is stable :)');
-           sol_num
-            stable_positive_real_solution_matrix=[stable_positive_real_solution_matrix; 
-                          double( [sol.M_t(sol_num) sol.Mf_t(sol_num) sol.T_t(sol_num) sol.Tf_t(sol_num)])]
-                       
+           disp('solution is stable');
        else
-            disp('solution is unstable :(');
+            disp('solution is unstable');
             unstable_positive_real_solution_matrix=[unstable_positive_real_solution_matrix; 
                double( [sol.M_t(sol_num) sol.Mf_t(sol_num) sol.T_t(sol_num) sol.Tf_t(sol_num)])];
         end
-       
            [sol.M_t(sol_num) sol.Mf_t(sol_num) sol.T_t(sol_num) sol.Tf_t(sol_num)];
-
      end
 end
 end
