@@ -9,7 +9,8 @@ function [flicks, index] = Flickering(array, value)
     a = array(1:end-1);
     b = array(2:end);
 
-    between = (value >= min(a, b)) & (value <= max(a, b));
+    between = (a < value & b >= value) | ...
+              (a > value & b <= value);
 
     index = find(between);
     flicks = length(index);
